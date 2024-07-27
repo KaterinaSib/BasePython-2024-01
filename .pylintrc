@@ -1,0 +1,15 @@
+[MAIN]
+disable=
+    C0114,
+    C0115,
+    C0116,
+    R0901,
+
+[MASTER]
+django-settings-module=water_metering.settings
+load-plugins=pylint_django
+ignore-paths=.*/migrations, .*/management/commands, manage.py
+max-line-length=120
+
+[SIMILARITIES]
+min-similarity-lines=10

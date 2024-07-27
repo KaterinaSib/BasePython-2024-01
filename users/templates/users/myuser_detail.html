@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{object.username}}
+{% endblock %}
+
+{% block main %}
+
+<h3>{{object.username}}</h3>
+
+{% for address in object.address_set.all %}
+    <p class="mb-3 h5"> {{address}}</p>
+        {% for meter in address.meter_set.all %}
+            <li><a href="{% url 'meters:meter_detail' pk=meter.pk %}">
+                {{meter}}</a>
+            </li>
+        {% endfor %}
+{% endfor %}
+
+{% if user.is_staff or user.is_superuser %}
+<a href="{% url 'users:list' %}">
+    Назад
+</a>
+<a href="{% url 'users:update' pk=object.pk %}">
+    Изменить данные пользователя
+</a>
+<a href="{% url 'users:delete' pk=object.pk %}">
+    Удалить пользователя
+</a>
+
+{% endif %}
+{% endblock %}
