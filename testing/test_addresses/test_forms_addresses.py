@@ -1,5 +1,5 @@
-from addresses.forms import AddressForm
 from django.test import TestCase
+from addresses.forms import AddressForm
 
 
 class TestAddressForm(TestCase):
