@@ -1,5 +1,3 @@
-image: python:3.11
-
 stages:
   - testing
   - build
@@ -18,22 +16,8 @@ lint:
 
 test:
   stage: testing
-#  services:
-#    - postgres
-#  variables:
-#    POSTGRES_DB: blog
-#    POSTGRES_USER: user
-#    POSTGRES_PASSWORD: example
-#    COVERAGE_DIR: "coverage-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA"
   script:
-#    - flask db upgrade
-    - pytest -s --cov --cov-report html:$COVERAGE_DIR --cov-fail-under 71
-#  artifacts:
-#    name: $COVERAGE_DIR
-#    paths:
-#      - $COVERAGE_DIR
-#    when: on_success
-#    expire_in: 1 week
+    - pytest -s --cov --cov-report --cov-fail-under 71
 
 make-build:
   stage: build
