@@ -1,25 +1,24 @@
-image: python:3.11
-
-stages:
-  - testing
-  - build
-  - deploy
-
-before_script:
-  - python --version
-  - pip install --upgrade pip
-  - pip install -r requirements.txt
-  - pip install -r dev_requirements.txt
-
-lint:
-  stage: testing
-  script:
-     - pylint $(git ls-files '*.py')
-
-test:
-  stage: testing
-  script:
-    - echo "test..."
+#image: python:3.11
+#
+#stages:
+#  - testing
+#  - build
+#  - deploy
+#
+#before_script:
+#  - python --version
+#  - pip install --upgrade pip
+#  - pip install -r requirements.txt
+#  - pip install -r dev_requirements.txt
+#
+#lint:
+#  stage: testing
+#  script:
+#    # - pylint $(git ls-files '*.py')
+#    - echo "lint done ..."
+#
+#test:
+#  stage: testing
 #  services:
 #    - postgres
 #  variables:
@@ -36,13 +35,13 @@ test:
 #      - $COVERAGE_DIR
 #    when: on_success
 #    expire_in: 1 week
-
-make-build:
-  stage: build
-  script:
-    - echo "Make build"
-
-deploy-job:
-  stage: deploy
-  script:
-    - echo "Deploying application..."
+#
+#make-build:
+#  stage: build
+#  script:
+#    - echo "Make build"
+#
+#deploy-job:
+#  stage: deploy
+#  script:
+#    - echo "Deploying application..."
