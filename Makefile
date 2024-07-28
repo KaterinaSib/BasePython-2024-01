@@ -18,3 +18,5 @@ createsuperuser:
 
 test:
 	python manage.py test
+create db:
+	python manage.py create_db_meters
