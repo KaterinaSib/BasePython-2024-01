@@ -10,39 +10,39 @@ class TestMeterView(TestCase):
 
     def setUp(self):
         self.admin = MyUser.objects.create(
-            username='admin',
-            email='admin@mail.com',
-            password='admin12345!',
+            username="admin",
+            email="admin@mail.com",
+            password="admin12345!",
             is_superuser=True,
         )
         self.user = MyUser.objects.create_user(
-            username='testuser',
-            email='user@mail.com',
-            password='12345',
+            username="testuser",
+            email="user@mail.com",
+            password="12345",
         )
 
         self.address = Address.objects.create(
-            street='Ленина',
+            street="Ленина",
             num_house=12,
             num_room=8,
             user=self.admin,
         )
-        self.category = Category.objects.create(name='ГВС')
+        self.category = Category.objects.create(name="ГВС")
         self.meter = Meter.objects.create(
             address=self.address,
             category=self.category,
-            type='Водомер',
+            type="Водомер",
             serial_num=12345,
         )
 
     def test_index_list_view(self):
-        url = reverse('index')
+        url = reverse("index")
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'base.html')
+        self.assertTemplateUsed(response, "base.html")
 
     def test_view_redirects_if_not_logged_in(self):
-        url = reverse('meters:meter_list')
+        url = reverse("meters:meter_list")
         response = self.client.get(url)
         success_url = f"{reverse('users:login')}?next={url}"
         self.assertEqual(response.status_code, 302)
@@ -50,19 +50,19 @@ class TestMeterView(TestCase):
 
     def test_view_for_non_super_user(self):
         self.client.force_login(self.user)
-        url = reverse('meters:meter_list')
+        url = reverse("meters:meter_list")
         response = self.client.get(url)
         self.assertEqual(response.status_code, 403)
 
     def test_view_for_super_user(self):
         self.client.force_login(self.admin)
-        response = self.client.get(reverse('meters:meter_list'))
+        response = self.client.get(reverse("meters:meter_list"))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'meters/meter_list.html')
+        self.assertTemplateUsed(response, "meters/meter_list.html")
 
     def test_authenticated_user_access(self):
         self.client.force_login(self.admin)
-        url = reverse('meters:meter_create')
+        url = reverse("meters:meter_create")
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
 

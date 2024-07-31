@@ -24,7 +24,7 @@ class TestUserView(TestCase):
             password="password12345!",
         )
         self.address = Address.objects.create(
-            street='Ленина',
+            street="Ленина",
             num_house=12,
             num_room=18,
             user=self.user,
@@ -35,18 +35,18 @@ class TestUserView(TestCase):
         self.address.delete()
 
     def test_user_can_register_with_valid_data(self):
-        url = reverse('users:register')
+        url = reverse("users:register")
         response = self.client.post(url, self.data)
         self.assertEqual(response.status_code, 302)
-        self.assertTrue(MyUser.objects.filter(username='TestUser').exists())
+        self.assertTrue(MyUser.objects.filter(username="TestUser").exists())
 
     def test_template_name(self):
-        url = reverse('users:register')
+        url = reverse("users:register")
         response = self.client.get(url)
-        self.assertTemplateUsed(response, 'register.html')
+        self.assertTemplateUsed(response, "register.html")
 
     def test_success_url(self):
-        url = reverse('users:register')
+        url = reverse("users:register")
         response = self.client.post(
             url,
             data=self.data,
@@ -55,11 +55,9 @@ class TestUserView(TestCase):
         self.assertRedirects(response, success_url)
 
     def test_redirect_regular_users(self):
-        url = reverse('users:login')
+        url = reverse("users:login")
         response = self.client.post(
-            url,
-            data={"username": "newuser",
-                  "password": "password12345!"}
+            url, data={"username": "newuser", "password": "password12345!"}
         )
         success_url = reverse(
             "addresses:address_detail",

@@ -8,10 +8,10 @@ from addresses.models import Address
 class TestAddressModel(TestCase):
     def setUp(self):
         self.user = MyUser.objects.create(
-            username='admin',
+            username="admin",
         )
         self.address = Address.objects.create(
-            street='Ленина',
+            street="Ленина",
             num_house=12,
             num_room=8,
             user=self.user,
@@ -25,5 +25,5 @@ class TestAddressModel(TestCase):
 
     def test_address_num_room_positive(self):
         with self.assertRaises(ValidationError):
-            address = Address(street='Main St', num_house='123', num_room=-1)
+            address = Address(street="Main St", num_house="123", num_room=-1)
             address.full_clean()

@@ -14,18 +14,18 @@ class TestUserForm(TestCase):
 
     def test_form_handles_missing_required_fields(self):
         form_data = {
-            'username': None,
-            'first_name': None,
-            'last_name': None,
-            'email': None,
-            'password1': None,
-            'password2': None,
+            "username": None,
+            "first_name": None,
+            "last_name": None,
+            "email": None,
+            "password1": None,
+            "password2": None,
         }
         form = RegisterForm(data=form_data)
         self.assertFalse(form.is_valid())
-        self.assertIn('username', form.errors)
-        self.assertIn('first_name', form.errors)
-        self.assertIn('last_name', form.errors)
-        self.assertIn('email', form.errors)
-        self.assertIn('password1', form.errors)
-        self.assertIn('password2', form.errors)
+        self.assertIn("username", form.errors)
+        self.assertIn("first_name", form.errors)
+        self.assertIn("last_name", form.errors)
+        self.assertIn("email", form.errors)
+        self.assertIn("password1", form.errors)
+        self.assertIn("password2", form.errors)

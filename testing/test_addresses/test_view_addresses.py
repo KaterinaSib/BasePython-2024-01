@@ -8,18 +8,18 @@ from users.models import MyUser
 class TestAddressListView(TestCase):
     def setUp(self):
         self.admin = MyUser.objects.create(
-            username='admin',
+            username="admin",
             email="admin@mail.com",
             password="admin12345!",
             is_superuser=True,
         )
         self.user = MyUser.objects.create(
-            username='test_user',
+            username="test_user",
             email="test_user@mail.com",
             password="test_user12345!",
         )
         self.address = Address.objects.create(
-            street='Ленина',
+            street="Ленина",
             num_house=12,
             num_room=8,
             user=self.user,
@@ -46,7 +46,7 @@ class TestAddressListView(TestCase):
         url = reverse("addresses:address_detail", kwargs={"pk": self.address.pk})
         response = self.client.get(url)
         self.assertEqual(response.status_code, 302)
-        self.assertTrue(response.url.startswith(reverse('users:login')))
+        self.assertTrue(response.url.startswith(reverse("users:login")))
 
     def test_address_creation_by_super_user(self):
         self.client.force_login(self.admin)
@@ -60,7 +60,7 @@ class TestAddressListView(TestCase):
         response = self.client.post(url, data)
         self.assertEqual(response.status_code, 302)
         self.assertTrue(Address.objects.filter(street="Пушкина").exists())
-        self.assertRedirects(response, reverse('addresses:address_list'))
+        self.assertRedirects(response, reverse("addresses:address_list"))
 
     def test_address_creation_by_non_super_user(self):
         self.client.force_login(self.user)
@@ -88,9 +88,9 @@ class TestAddressListView(TestCase):
         self.assertEqual(response.status_code, 302)
         self.address.refresh_from_db()
         self.assertEqual(self.address.street, "Пушкина")
-        self.assertEqual(self.address.num_house, '2')
+        self.assertEqual(self.address.num_house, "2")
         self.assertEqual(self.address.num_room, 20)
-        self.assertRedirects(response, reverse('addresses:address_list'))
+        self.assertRedirects(response, reverse("addresses:address_list"))
 
     def test_updates_address_by_non_super_user(self):
         self.client.force_login(self.user)
@@ -118,7 +118,7 @@ class TestAddressListView(TestCase):
         response = self.client.post(url)
         self.assertEqual(response.status_code, 302)
         self.assertFalse(Address.objects.filter(pk=address.pk).exists())
-        self.assertRedirects(response, reverse('addresses:address_list'))
+        self.assertRedirects(response, reverse("addresses:address_list"))
 
     def test_address_deleted_by_non_super_user(self):
         self.client.force_login(self.user)

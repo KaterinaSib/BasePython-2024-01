@@ -10,27 +10,27 @@ from users.models import MyUser
 class TestSetupBase(TestCase):
     def setUp(self):
         self.admin = MyUser.objects.create(
-            username='admin',
-            email='admin@mail.com',
-            password='admin12345!',
+            username="admin",
+            email="admin@mail.com",
+            password="admin12345!",
             is_superuser=True,
         )
         self.user = MyUser.objects.create_user(
-            username='testuser',
-            email='user@mail.com',
-            password='12345',
+            username="testuser",
+            email="user@mail.com",
+            password="12345",
         )
         self.address = Address.objects.create(
-            street='Ленина',
+            street="Ленина",
             num_house=12,
             num_room=8,
             user=self.admin,
         )
-        self.category = Category.objects.create(name='ГВС')
+        self.category = Category.objects.create(name="ГВС")
         self.meter = Meter.objects.create(
             address=self.address,
             category=self.category,
-            type='Водомер',
+            type="Водомер",
             serial_num=12345,
         )
 
@@ -39,7 +39,7 @@ class TestCategoryModel(TestSetupBase):
 
     def test_create_category_with_valid_name(self):
         category = self.category
-        self.assertEqual(str(category), 'ГВС')
+        self.assertEqual(str(category), "ГВС")
 
     def test_create_category_with_empty_name(self):
         with self.assertRaises(ValidationError):
@@ -59,8 +59,8 @@ class TestMeterModel(TestSetupBase):
             Meter.objects.create(
                 address=self.address,
                 category=self.category,
-                type='ХВС',
-                serial_num=12345
+                type="ХВС",
+                serial_num=12345,
             )
 
 
