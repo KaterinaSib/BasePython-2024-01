@@ -12,9 +12,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-l367o+e&yp7^_+m(3rotk8utzd^7ff3-ll9+a9))vla4z2o7)z"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+DEBUG_TOOLBAR_CONFIG = {
+    "IS_RUNNING_TESTS": False,
+}
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+ALLOWED_HOSTS = ["127.0.0.1",]
 
 
 # Application definition
@@ -129,7 +137,3 @@ AUTH_USER_MODEL = "users.MyUser"
 LOGIN_URL = "/users/login/"
 LOGOUT_REDIRECT_URL = "/users/login/"
 LOGIN_REDIRECT_URL = "/"
-
-DEBUG_TOOLBAR_CONFIG = {
-    "IS_RUNNING_TESTS": False,
-}
