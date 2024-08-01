@@ -17,6 +17,7 @@ services:
       interval: 5s
       timeout: 3s
       retries: 5
+    network_mode: host
 
   pgadmin:
     image: dpage/pgadmin4
