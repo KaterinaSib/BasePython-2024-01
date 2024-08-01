@@ -82,11 +82,11 @@ WSGI_APPLICATION = "water_metering.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": os.getenv('POSTGRES_DB'),
-        "USER": os.getenv('POSTGRES_USER'),
-        "PASSWORD": os.getenv('POSTGRES_PASSWORD'),
-        "HOST": os.getenv('POSTGRES_HOST'),
-        "PORT": os.getenv('POSTGRES_PORT'),
+        "NAME": os.getenv('POSTGRES_DB', 'meter'),
+        "USER": os.getenv('POSTGRES_USER', 'user'),
+        "PASSWORD": os.getenv('POSTGRES_PASSWORD', 'password'),
+        "HOST": os.getenv('POSTGRES_HOST', 'pg'),
+        "PORT": os.getenv('POSTGRES_PORT', 5432),
     }
 }
 
