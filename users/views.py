@@ -29,7 +29,7 @@ class AuthView(LoginView):
         user = self.request.user
         if user.is_staff or user.is_superuser:
             return reverse("index")
-        address = get_object_or_404(Address, user=user)
+        get_object_or_404(Address, user=user)
         return reverse(
             "users:detail",
             kwargs={"pk": user.pk},

@@ -60,7 +60,7 @@ class TestUserView(TestCase):
             url, data={"username": "newuser", "password": "password12345!"}
         )
         success_url = reverse(
-            "addresses:address_detail",
-            kwargs={"pk": self.address.pk},
+            "users:detail",
+            kwargs={"pk": self.user.pk},
         )
         self.assertRedirects(response, success_url)
