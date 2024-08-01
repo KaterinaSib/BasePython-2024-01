@@ -23,5 +23,5 @@ jobs:
     - name: Test project with pytest
       run: |
         docker-compose up -d pg
-        CMD-SHELL pg_isready -d meter -U user
+        docker-compose exec pg echo "pg is up"
         pytest -s --cov --cov-fail-under 90
