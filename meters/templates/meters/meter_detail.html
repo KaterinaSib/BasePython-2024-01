@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 
 {% block title %}
-{{object.name}}
+{{object.address}}
 {% endblock %}
 
 {% block main %}
 
 
-<h3>{{object.address}}</h3>
-<span class="mb-3">{{object.category}} / "{{object.type}}", серийный номер: {{object.serial_num }}</span>
+<h3 class="m-3">{{object.address}}</h3>
+
+<span class="m-3">{{object.category}} / "{{object.type}}", серийный номер: {{object.serial_num }}</span>
 
 <ul>
     {% for data in object.meterdata_set.all|dictsortreversed:"date_time" %}
@@ -18,18 +19,22 @@
 
 
 {% if user.is_staff or user.is_superuser %}
-<a class="m-3" href="{% url 'meters:meter_list' %}">
+<div class="d-grid d-md-block m-3">
+<a class="btn btn-primary" href="{% url 'meters:meter_list' %}">
     Назад
 </a>
-<a href="{% url 'meters:meter_delete' pk=object.pk %}">
+<a class="btn btn-primary" href="{% url 'meters:meter_delete' pk=object.pk %}">
     Удалить датчик
 </a>
+</div>
 {% else %}
-<a href="{% url 'meters:meter_data_create' pk=object.pk %}">
+<div class="d-grid d-md-block">
+<a class="btn btn-primary" href="{% url 'meters:meter_data_create' pk=object.pk %}">
     Добавить показания
 </a>
-<a class="mt-3" href="{% url 'users:detail' pk=user.pk %}">
+<a class="btn btn-primary" href="{% url 'users:detail' pk=user.pk %}">
     Назад
 </a>
+</div>
 {% endif %}
 {% endblock %}

@@ -1,25 +1,22 @@
 {% extends "base.html" %}
 
 {% block title %}
-    {{object.name}}
+{{object.name}}
 {% endblock %}
 
 {% block main %}
 
-<p class="m-3">Удалить?</p>
+<h3 class="m-3">Удалить счётчик?</h3>
 
-<h1>{{object.name}}</h1>
-<h2>{{object.category}}</h2>
-<h3>{{object.address}}</h3>
-<h3>{{object.indication}}</h3>
+<h4 class="mx-3">{{object.address}}</h4>
+<h4 class="mx-3">{{object}}</h4>
 
 <form method="post">
     {% csrf_token %}
-    <button type="submit">Да</button>
+    <div class="d-grid d-md-block m-3">
+        <button class="btn btn-primary" type="submit">Да</button>
+        <a class="btn btn-primary" href="{% url 'meters:meter_list' %}">Назад</a>
+    </div>
 </form>
-
-<a href="{% url 'meters:meter_list' %}">
-    Назад
-</a>
 
 {% endblock %}

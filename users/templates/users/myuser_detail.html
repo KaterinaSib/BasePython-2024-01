@@ -6,27 +6,29 @@
 
 {% block main %}
 
-<h3>{{object.username}}</h3>
+<h3>{{object.first_name}} {{object.last_name}}</h3>
 
 {% for address in object.address_set.all %}
-    <p class="mb-3 h5"> {{address}}</p>
-        {% for meter in address.meter_set.all %}
-            <li><a href="{% url 'meters:meter_detail' pk=meter.pk %}">
-                {{meter}}</a>
-            </li>
-        {% endfor %}
+<p class="mb-3 h5"> {{address}}</p>
+{% for meter in address.meter_set.all %}
+<li><a href="{% url 'meters:meter_detail' pk=meter.pk %}">
+    {{meter}}</a>
+</li>
+{% endfor %}
 {% endfor %}
 
 {% if user.is_staff or user.is_superuser %}
-<a href="{% url 'users:list' %}">
-    Назад
-</a>
-<a href="{% url 'users:update' pk=object.pk %}">
-    Изменить данные пользователя
-</a>
-<a href="{% url 'users:delete' pk=object.pk %}">
-    Удалить пользователя
-</a>
+<div class="d-grid d-md-block m-4">
+    <a class="btn btn-primary" href="{% url 'users:list' %}">
+        Назад
+    </a>
+    <a class="btn btn-primary" href="{% url 'users:update' pk=object.pk %}">
+        Изменить данные пользователя
+    </a>
+    <a class="btn btn-primary" href="{% url 'users:delete' pk=object.pk %}">
+        Удалить пользователя
+    </a>
+</div>
 
 {% endif %}
 {% endblock %}

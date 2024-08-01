@@ -6,7 +6,10 @@ Addresses list
 
 {% block main %}
 
-<a class="link-info m-3" href="{% url 'addresses:address_create' %}">Create</a>
+<a class="btn btn-primary m-3 d-grid gap-2 col-3 d-md-block"
+   href="{% url 'addresses:address_create' %}">
+    Зарегистрировать новый адрес
+</a>
 
 <ul>
     {% for address in object_list %}

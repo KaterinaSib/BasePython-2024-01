@@ -31,8 +31,8 @@ class AuthView(LoginView):
             return reverse("index")
         address = get_object_or_404(Address, user=user)
         return reverse(
-            "addresses:address_detail",
-            kwargs={"pk": address.pk},
+            "users:detail",
+            kwargs={"pk": user.pk},
         )
 
 

@@ -6,7 +6,10 @@ Meters list
 
 {% block main %}
 
-<a class="link-info m-3" href="{% url 'meters:meter_create' %}">Create</a>
+<a class="btn btn-primary m-3 d-grid gap-2 col-3 d-md-block"
+   href="{% url 'meters:meter_create' %}">
+    Зарегистрировать новый счётчик
+</a>
 
 <ul>
     {% for meter in object_list %}

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-    New User
+New User
 {% endblock %}
 
 {% block main %}
@@ -10,10 +10,10 @@
     {% csrf_token %}
     {{ form.as_p }}
 
-    <button class="btn btn-primary" type="submit">Сохранить</button>
+    <div class="d-grid d-md-block">
+        <button class="btn btn-primary" type="submit">Сохранить</button>
+        <a class="btn btn-primary" href="{% url 'users:list' %}">Назад</a>
+    </div>
 </form>
 
-<a href="{% url 'users:list' %}">
-    Назад
-</a>
 {% endblock %}

@@ -6,7 +6,9 @@ Users list
 
 {% block main %}
 
-<a class="link-info m-3" href="{% url 'users:create' %}">Create</a>
+<a class="btn btn-primary m-3 d-grid gap-2 col-3 d-md-block" href="{% url 'users:create' %}">
+    Зарегистрировать нового пользователя
+</a>
 
 <ul>
     {% for user in object_list %}

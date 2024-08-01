@@ -89,15 +89,18 @@
             <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
                href="{% url 'users:login' %}">Login</a>
         </div>
+        {% endif %}
         <div class="m-3">
             <span>
-                Если у Вас нет логина и пароля для входа, то Вам необходимо отправить заявку на регистрацию нового
-                пользователя.
+                Если у Вас есть вопросы или пожелания по работе приложения, отправьте Нам сообщение:
             </span>
+
             <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-               href="#">Отправить заявку</a>
+               href="#">
+                Задать вопрос
+            </a>
+
         </div>
-        {% endif %}
         {% endblock %}
     </div>
 </div>

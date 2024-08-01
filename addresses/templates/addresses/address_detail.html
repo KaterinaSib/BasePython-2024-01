@@ -6,7 +6,7 @@
 
 {% block main %}
 
-<h3> ул.{{object.street}}, д.{{object.num_house}}, кв.{{object.num_room}}</h3>
+<h3 class="m-3"> ул.{{object.street}}, д.{{object.num_house}}, кв.{{object.num_room}}</h3>
 
 <ul>
     {% for meter in address.meter_set.all %}
@@ -20,14 +20,7 @@
 </ul>
 
 
-<a href="{% url 'addresses:address_list' %}">
+<a class="btn btn-primary d-grid gap-2 col-3 d-md-auto" href="{% url 'addresses:address_list' %}">
     Назад
 </a>
-<a href="{% url 'addresses:address_update' pk=object.pk %}">
-    Изменить адрес
-</a>
-<a href="{% url 'addresses:address_delete' pk=object.pk %}">
-    Удалить адрес
-</a>
-
 {% endblock %}

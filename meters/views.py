@@ -49,7 +49,6 @@ class MeterCreateView(UserPassesTestMixin, CreateView):
 
 class MeterDataCreateView(LoginRequiredMixin, CreateView):
     model = MeterData
-    # form_class = MeterDataForm
     fields = ("data",)
     permission_required = ["meters.add_meterdata"]
 
