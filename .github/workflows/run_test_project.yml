@@ -23,5 +23,4 @@ jobs:
     - name: Test project with pytest
       run: |
         docker-compose up -d pg
-        docker-compose exec pg echo "pg is up"
         pytest -s --cov --cov-fail-under 90
