@@ -4,10 +4,8 @@ services:
 
   pg:
     image: postgres
-    environment:
-     - POSTGRES_DB=meter
-     - POSTGRES_USER=user
-     - POSTGRES_PASSWORD=password
+    env_file:
+      - .env
     volumes:
       - db-data:/var/lib/postgresql/data
     ports:
