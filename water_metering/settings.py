@@ -85,7 +85,7 @@ DATABASES = {
         "NAME": 'meter',
         "USER": 'user',
         "PASSWORD": 'password',
-        "HOST": "",
+        "HOST": "pg",
         "PORT": 5432,
     }
 }
