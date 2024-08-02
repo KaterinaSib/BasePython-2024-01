@@ -22,7 +22,7 @@ jobs:
         pip install -r dev_requirements.txt
     - name: Test project with pytest
       run: |
-        docker-compose up -d pg
+        docker-compose up -d
         docker ps -a | grep postgres
         python manage.py migrate
         python manage.py create_db_meters
