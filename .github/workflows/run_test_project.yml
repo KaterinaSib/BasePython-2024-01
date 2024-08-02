@@ -22,6 +22,6 @@ jobs:
         pip install -r dev_requirements.txt
     - name: Test project with pytest
       run: |
-        docker-compose up -d pg
+        docker-compose up -d
         docker ps -a | grep postgres
         pytest -s --cov --cov-fail-under 90
