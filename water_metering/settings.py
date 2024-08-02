@@ -81,7 +81,7 @@ WSGI_APPLICATION = "water_metering.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": 'meter',
         "USER": 'user',
         "PASSWORD": 'password',
