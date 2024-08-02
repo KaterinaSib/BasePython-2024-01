@@ -24,6 +24,4 @@ jobs:
       run: |
         docker-compose up -d pg
         docker ps -a | grep postgres
-        python manage.py migrate
-        python manage.py create_db_meters
         pytest -s --cov --cov-fail-under 90
