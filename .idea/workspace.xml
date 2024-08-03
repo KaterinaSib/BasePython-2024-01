@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8e92ae4-bddb-444d-b678-67c3f065157c" name="Changes" comment="change gitignore">
-      <change afterPath="$PROJECT_DIR$/.idea/Project_base_python.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="b8e92ae4-bddb-444d-b678-67c3f065157c" name="Changes" comment="change gitignore" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,22 +88,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1722108914021</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Update .gitlab-ci.yml to streamline CI/CD stages and scripts">
-      <option name="closed" value="true" />
-      <created>1722127012970</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1722127012970</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Update .gitlab-ci.yml">
-      <option name="closed" value="true" />
-      <created>1722170941318</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1722170941318</updated>
     </task>
     <task id="LOCAL-00007" summary="add postgresql and docker image">
       <option name="closed" value="true" />
@@ -489,7 +465,23 @@
       <option name="project" value="LOCAL" />
       <updated>1722694036829</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="change gitignore">
+      <option name="closed" value="true" />
+      <created>1722694186741</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1722694186741</updated>
+    </task>
+    <task id="LOCAL-00055" summary="change gitignore">
+      <option name="closed" value="true" />
+      <created>1722694410003</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1722694410003</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
