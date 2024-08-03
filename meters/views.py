@@ -26,7 +26,7 @@ class MeterListView(UserPassesTestMixin, ListView):
 
     def test_func(self):
         user = self.request.user
-        return self.request.user.is_staff or user.is_superuser
+        return user.is_staff or user.is_superuser
 
 
 class MeterDetailView(UserPassesTestMixin, DetailView):
@@ -44,7 +44,7 @@ class MeterCreateView(UserPassesTestMixin, CreateView):
 
     def test_func(self):
         user = self.request.user
-        return self.request.user.is_staff or user.is_superuser
+        return user.is_staff or user.is_superuser
 
 
 class MeterDataCreateView(LoginRequiredMixin, CreateView):
@@ -82,7 +82,7 @@ class MeterDeleteView(UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         user = self.request.user
-        return self.request.user.is_staff or user.is_superuser
+        return user.is_staff or user.is_superuser
 
     def get_success_url(self):
         return reverse_lazy("meters:meter_list")

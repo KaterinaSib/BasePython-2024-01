@@ -20,7 +20,7 @@ class AddressListView(UserPassesTestMixin, ListView):
 
     def test_func(self):
         user = self.request.user
-        return self.request.user.is_staff or user.is_superuser
+        return user.is_staff or user.is_superuser
 
 
 class AddressDetailView(LoginRequiredMixin, DetailView):
@@ -34,7 +34,7 @@ class AddressCreateView(UserPassesTestMixin, CreateView):
 
     def test_func(self):
         user = self.request.user
-        return self.request.user.is_staff or user.is_superuser
+        return user.is_staff or user.is_superuser
 
 
 class AddressUpdateView(PermissionRequiredMixin, UpdateView):
@@ -50,4 +50,4 @@ class AddressDeleteView(UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         user = self.request.user
-        return self.request.user.is_staff or user.is_superuser
+        return user.is_staff or user.is_superuser

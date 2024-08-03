@@ -19,8 +19,19 @@
     {% endfor %}
 </ul>
 
+<div class="d-grid d-md-block m-3">
+    <a class="btn btn-primary"
+       href="{% url 'addresses:address_list' %}">
+        Назад
+    </a>
+    <a class="btn btn-primary"
+       href="{% url 'addresses:address_update' pk=object.pk%}">
+        Изменить данные адреса
+    </a>
+    <a class="btn btn-primary"
+       href="{% url 'addresses:address_delete' pk=object.pk %}">
+        Удалить адрес
+    </a>
+</div>
 
-<a class="btn btn-primary d-grid gap-2 col-3 d-md-auto" href="{% url 'addresses:address_list' %}">
-    Назад
-</a>
 {% endblock %}

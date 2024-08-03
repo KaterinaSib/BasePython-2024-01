@@ -13,28 +13,31 @@
 
 <ul>
     {% for data in object.meterdata_set.all|dictsortreversed:"date_time" %}
-        <li>{{data.date_time|date:"Y-m-d H:i:s"}}: Показания - {{data.data}}</li>
+    <li>{{data.date_time|date:"Y-m-d H:i:s"}}: Показания - {{data.data}}</li>
     {% endfor %}
 </ul>
 
 
 {% if user.is_staff or user.is_superuser %}
 <div class="d-grid d-md-block m-3">
-<a class="btn btn-primary" href="{% url 'meters:meter_list' %}">
-    Назад
-</a>
-<a class="btn btn-primary" href="{% url 'meters:meter_delete' pk=object.pk %}">
-    Удалить датчик
-</a>
+    <a class="btn btn-primary" href="{% url 'meters:meter_list' %}">
+        Назад
+    </a>
+    <a class="btn btn-primary" href="{% url 'meters:meter_update' pk=object.pk %}">
+        Изменить данные датчика
+    </a>
+    <a class="btn btn-primary" href="{% url 'meters:meter_delete' pk=object.pk %}">
+        Удалить датчик
+    </a>
 </div>
 {% else %}
 <div class="d-grid d-md-block">
-<a class="btn btn-primary" href="{% url 'meters:meter_data_create' pk=object.pk %}">
-    Добавить показания
-</a>
-<a class="btn btn-primary" href="{% url 'users:detail' pk=user.pk %}">
-    Назад
-</a>
+    <a class="btn btn-primary" href="{% url 'meters:meter_data_create' pk=object.pk %}">
+        Добавить показания
+    </a>
+    <a class="btn btn-primary" href="{% url 'users:detail' pk=user.pk %}">
+        Назад
+    </a>
 </div>
 {% endif %}
 {% endblock %}

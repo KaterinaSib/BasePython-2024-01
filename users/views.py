@@ -62,7 +62,12 @@ class UserCreateView(PermissionRequiredMixin, CreateView):
 class UserUpdateView(PermissionRequiredMixin, UpdateView):
     permission_required = ["users.change_user"]  # view, add, change, delete
     model = MyUser
-    fields = "__all__"
+    fields = ("username",
+              "first_name",
+              "last_name",
+              "email",
+              "password",
+              )
     success_url = reverse_lazy("users:list")
 
 
