@@ -18,10 +18,19 @@ lint:
 test:
   stage: testing
   before_script:
-    - pip install docker-compose
+    - pip install docker-compose=1.29.2
     - docker-compose build
     - docker-compose up -d pg
     - sleep 3
+    - python manage.py migrate
+    - python manage.py create_db_meters
+  services:
+    - postgres
+  variables:
+    POSTGRES_DB: meter
+    POSTGRES_USER: user
+    POSTGRES_PASSWORD: password
+    POSTGRES_HOST: pg
   script:
     - pytest -s --cov --cov-report --cov-fail-under 71
 
