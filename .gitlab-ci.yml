@@ -29,9 +29,8 @@ test:
     POSTGRES_PASSWORD: password
     POSTGRES_HOST: pg
   script:
-    - docker-compose up -d
+    - docker-compose up
     - python manage.py migrate
-    - python manage.py create_db_meters
     - pytest -s --cov --cov-report --cov-fail-under 71
 
 make-build:
