@@ -31,8 +31,6 @@ services:
     build:
       dockerfile: ./Dockerfile
       context: ./
-    environment:
-      SQLALCHEMY_DATABASE_URI: "postgresql+psycopg2://user:password@pg:5432/meter"
     command: python manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
