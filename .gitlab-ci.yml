@@ -20,6 +20,7 @@ test:
   before_script:
     - pip install PyYAML==5.3.1
     - pip install docker-compose==1.29.2
+    - pip install paramiko==3.0 cryptography==36.0
 
   services:
     - postgres
