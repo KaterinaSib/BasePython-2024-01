@@ -9,6 +9,10 @@ before_script:
   - python -m pip install --upgrade pip
   - pip install -r requirements.txt
   - pip install -r dev_requirements.txt
+  - pip install docker==6.1.3
+  - pip install PyYAML==5.3.1
+  - pip install docker-compose
+  - pip install paramiko==3.0 cryptography==36.0
 
 lint:
   stage: testing
@@ -17,11 +21,6 @@ lint:
 
 test:
   stage: testing
-  before_script:
-    - pip install PyYAML==5.3.1
-    - pip install docker-compose
-    - pip install paramiko==3.0 cryptography==36.0
-
   services:
     - postgres
   variables:
