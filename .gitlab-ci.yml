@@ -30,7 +30,7 @@ test:
     POSTGRES_PASSWORD: password
     POSTGRES_HOST: pg
   script:
-    - docker-compose up
+    - docker compose up
     - pytest -s --cov --cov-report --cov-fail-under 71
 
 make-build:
