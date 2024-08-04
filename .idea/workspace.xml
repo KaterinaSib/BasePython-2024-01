@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8e92ae4-bddb-444d-b678-67c3f065157c" name="Changes" comment="some changes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="b8e92ae4-bddb-444d-b678-67c3f065157c" name="Changes" comment="some changes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,22 +88,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1722108914021</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Update fils with black, add dockerfile and docker-compose.yml, add postgres">
-      <option name="closed" value="true" />
-      <created>1722443479876</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1722443479876</updated>
-    </task>
-    <task id="LOCAL-00010" summary="fix tempates html">
-      <option name="closed" value="true" />
-      <created>1722533807154</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1722533807154</updated>
     </task>
     <task id="LOCAL-00011" summary="fix actions">
       <option name="closed" value="true" />
@@ -483,7 +465,23 @@
       <option name="project" value="LOCAL" />
       <updated>1722764867105</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="some changes">
+      <option name="closed" value="true" />
+      <created>1722765736478</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1722765736478</updated>
+    </task>
+    <task id="LOCAL-00059" summary="some changes">
+      <option name="closed" value="true" />
+      <created>1722765967210</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1722765967210</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
