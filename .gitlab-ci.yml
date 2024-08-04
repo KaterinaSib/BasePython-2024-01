@@ -27,7 +27,7 @@ test:
     COVERAGE_DIR: "coverage-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA"
   script:
     - python manage.py migrate
-    - pytest -s --cov-report html:$COVERAGE_DIR --cov-fail-under 90
+    - pytest -s --cov --cov-report html:$COVERAGE_DIR --cov-fail-under 90
   artifacts:
     name: $COVERAGE_DIR
     paths:
