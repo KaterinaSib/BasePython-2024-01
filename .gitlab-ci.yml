@@ -23,9 +23,10 @@ test:
     POSTGRES_DB: meter
     POSTGRES_USER: user
     POSTGRES_PASSWORD: password
-    POSTGRES_DATABASE_URI: "postgresql+psycopg2://user:password@pg:5432/meter"
+    POSTGRES_DATABASE_URI: "postgresql+psycopg2://user:password@postgres:5432/meter"
     COVERAGE_DIR: "coverage-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA"
   script:
+    - python manage.py migrate
     - pytest -s --cov-report html:$COVERAGE_DIR --cov-fail-under 90
   artifacts:
     name: $COVERAGE_DIR
