@@ -41,9 +41,6 @@ jobs:
 
       - name: Connect to PostgreSQL
         run: python manage.py migrate
-        env:
-          POSTGRES_HOST: postgres
-          POSTGRES_PORT: 5432
 
       - name: Test project with pytest
         run: |
