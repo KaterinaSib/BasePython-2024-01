@@ -5,6 +5,9 @@ stages:
 
 lint:
   stage: testing
+  before_script:
+    - pip install -r requirements.txt
+    - pip install -r dev_requirements.txt
   script:
      - pylint $(git ls-files '*.py')
 
