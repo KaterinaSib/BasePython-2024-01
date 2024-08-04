@@ -27,12 +27,16 @@ test:
     POSTGRES_DB: meter
     POSTGRES_USER: user
     POSTGRES_PASSWORD: password
-    POSTGRES_HOST: pg
+    SQLALCHEMY_DATABASE_URI: "postgresql+psycopg2://user:password@postgres:5432/meter"
+    COVERAGE_DIR: "coverage-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA"
   script:
-    - pip list
-    - docker-compose build
-    - docker-compose up
-    - pytest -s --cov --cov-report --cov-fail-under 71
+    - pytest -s --cov-report html:$COVERAGE_DIR --cov-fail-under 71
+  artifacts:
+    name: $COVERAGE_DIR
+    paths:
+      - $COVERAGE_DIR
+    when: on_success
+    expire_in: 1 week
 
 make-build:
   stage: build
