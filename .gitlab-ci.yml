@@ -30,6 +30,7 @@ test:
     POSTGRES_HOST: pg
   script:
     - docker-compose up
+    - python manage.py makemigrations
     - python manage.py migrate
     - pytest -s --cov --cov-report --cov-fail-under 71
 

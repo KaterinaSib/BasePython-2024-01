@@ -12,3 +12,5 @@ RUN pip install --upgrade pip; pip install -r requirements.txt; pip install -r d
 ADD . /meter_app/
 
 RUN python manage.py collectstatic --noinput
+
+CMD ["python manage.py migrate", "python manage.py create_db_meters"]

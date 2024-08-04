@@ -28,6 +28,7 @@ services:
       - "5050:80"
 
   app:
+    image: python:3.11
     build:
       dockerfile: ./Dockerfile
       context: ./
