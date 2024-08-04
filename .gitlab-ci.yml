@@ -20,9 +20,7 @@ test:
   before_script:
     - pip install PyYAML==5.3.1
     - pip install docker-compose==1.29.2
-    - sleep 3
-    - python manage.py migrate
-    - python manage.py create_db_meters
+
   services:
     - postgres
   variables:
@@ -32,7 +30,9 @@ test:
     POSTGRES_HOST: pg
   script:
     - docker-compose build
-    - docker-compose up -d pg
+    - docker-compose up -d
+    - python manage.py migrate
+    - python manage.py create_db_meters
     - pytest -s --cov --cov-report --cov-fail-under 71
 
 make-build:
