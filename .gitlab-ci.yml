@@ -9,10 +9,6 @@ before_script:
   - python -m pip install --upgrade pip
   - pip install -r requirements.txt
   - pip install -r dev_requirements.txt
-  - pip install PyYAML==5.3.1
-  - pip install docker-compose
-  - pip install paramiko==3.0 cryptography==36.0
-  - pip install requests==2.29.0
 
 lint:
   stage: testing
@@ -27,10 +23,10 @@ test:
     POSTGRES_DB: meter
     POSTGRES_USER: user
     POSTGRES_PASSWORD: password
-    SQLALCHEMY_DATABASE_URI: "postgresql+psycopg2://user:password@postgres:5432/meter"
+    POSTGRES_DATABASE_URI: "postgresql+psycopg2://user:password@pg:5432/meter"
     COVERAGE_DIR: "coverage-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA"
   script:
-    - pytest -s --cov-report html:$COVERAGE_DIR --cov-fail-under 71
+    - pytest -s --cov-report html:$COVERAGE_DIR --cov-fail-under 90
   artifacts:
     name: $COVERAGE_DIR
     paths:
