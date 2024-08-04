@@ -30,6 +30,7 @@ test:
     POSTGRES_HOST: pg
   script:
     - pip list
+    - docker-compose build
     - docker-compose up
     - pytest -s --cov --cov-report --cov-fail-under 71
 
