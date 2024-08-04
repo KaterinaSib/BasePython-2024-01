@@ -19,7 +19,7 @@ test:
   stage: testing
   before_script:
     - pip install PyYAML==5.3.1
-    - pip install docker compose
+    - pip install docker-compose
     - pip install paramiko==3.0 cryptography==36.0
 
   services:
@@ -30,7 +30,7 @@ test:
     POSTGRES_PASSWORD: password
     POSTGRES_HOST: pg
   script:
-    - docker compose up
+    - docker-compose up
     - pytest -s --cov --cov-report --cov-fail-under 71
 
 make-build:
