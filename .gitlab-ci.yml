@@ -17,6 +17,10 @@ lint:
 
 test:
   stage: testing
+  before_script:
+    - docker-compose build
+    - docker-compose up -d pg
+    - sleep 3
   script:
     - pytest -s --cov --cov-report --cov-fail-under 71
 
