@@ -18,6 +18,7 @@ lint:
 test:
   stage: testing
   before_script:
+    - pip install PyYAML==5.3.1
     - pip install docker-compose==1.29.2
     - docker-compose build
     - docker-compose up -d pg
