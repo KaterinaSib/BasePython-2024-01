@@ -20,7 +20,6 @@ test:
   before_script:
     - pip install PyYAML==5.3.1
     - pip install docker-compose==1.29.2
-    - docker-compose up -d pg
     - sleep 3
     - python manage.py migrate
     - python manage.py create_db_meters
@@ -32,6 +31,8 @@ test:
     POSTGRES_PASSWORD: password
     POSTGRES_HOST: pg
   script:
+    - docker-compose build
+    - docker-compose up -d pg
     - pytest -s --cov --cov-report --cov-fail-under 71
 
 make-build:
