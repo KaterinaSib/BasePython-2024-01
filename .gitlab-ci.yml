@@ -20,7 +20,6 @@ test:
   before_script:
     - pip install PyYAML==5.3.1
     - pip install docker-compose==1.29.2
-    - docker-compose build
     - docker-compose up -d pg
     - sleep 3
     - python manage.py migrate
