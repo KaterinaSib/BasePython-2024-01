@@ -18,7 +18,7 @@ lint:
 test:
   stage: testing
   before_script:
-    - pip install docker-compose=1.29.2
+    - pip install docker-compose==1.29.2
     - docker-compose build
     - docker-compose up -d pg
     - sleep 3
