@@ -27,14 +27,14 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install dependencies
-        run:
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+        run: |
+          python -m pip install --upgrade pip;
+          pip install -r requirements.txt;
           pip install -r dev_requirements.txt
 
       - name: Connect to PostgreSQL
-        run:
-          node client.js
+        run: |
+          node client.js;
           python manage.py migrate
         env:
           POSTGRES_DB: meter
