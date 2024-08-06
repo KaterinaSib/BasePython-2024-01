@@ -20,9 +20,9 @@ test:
   services:
     - postgres
   variables:
-    POSTGRES_DB: meter
-    POSTGRES_USER: user
-    POSTGRES_PASSWORD: password
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: postgres
+    POSTGRES_DB: github_actions
     POSTGRES_HOST: postgres
     COVERAGE_DIR: "coverage-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA"
   script:
