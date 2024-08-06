@@ -3,7 +3,7 @@ name: Testing the project
 on: push
 
 jobs:
-  runner-job:
+  build:
     runs-on: ubuntu-latest
     strategy:
         matrix:
@@ -33,9 +33,7 @@ jobs:
           pip install -r dev_requirements.txt
 
       - name: Connect to PostgreSQL
-        run: |
-          node client.js;
-          python manage.py migrate
+        run:  python manage.py migrate
         env:
           POSTGRES_DB: meter
           POSTGRES_USER: user
